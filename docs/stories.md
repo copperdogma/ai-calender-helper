@@ -9,6 +9,7 @@ AI Calendar Helper
 ## Story List
 | Story ID | Title                | Priority    | Status    | Link                       |
 |----------|----------------------|-------------|-----------|----------------------------|
+| 024      | Design System & Theme Implementation | Medium | To Do | /docs/stories/story-024-design-system.md |
 | 002      | User Authentication with Firebase | High | To Do | /docs/stories/story-002-user-authentication-firebase.md |
 | 001      | Google Calendar API Integration | High | To Do | /docs/stories/story-001-google-calendar-api-integration.md |
 | 004      | Natural Language Processing Setup | High | To Do | /docs/stories/story-004-nlp-setup.md |
@@ -61,6 +62,7 @@ AI Calendar Helper
 - Story 014: Recurring Event Support
 - Story 018: Error Handling & Recovery
 - Story 019: Security Implementations
+- Story 024: Design System & Theme Implementation
 
 ### Phase 3: Novel Events Feature
 - Story 022: Background Service Infrastructure

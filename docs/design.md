@@ -1,3 +1,247 @@
+# AI Calendar Helper - Design Documentation
+
+## Architecture Overview
+
+The application follows a modern web architecture with:
+- Server-side rendering using Next.js App Router
+- React Server Components for optimal performance
+- API routes for calendar operations
+- Secure authentication flow
+- Efficient data caching strategy
+
+## Core Features
+
+### 1. Text-to-Calendar
+Primary feature that converts natural language into calendar events:
+- Natural language processing for event details
+- Smart date/time parsing
+- Location and attendee detection
+- Recurring event pattern recognition
+- Direct Google Calendar integration
+
+### 2. Novel Events Extraction
+Background service for identifying and summarizing unique calendar events:
+- Automated event analysis
+- Pattern recognition for recurring vs. unique events
+- Daily email summaries
+- Customizable filtering options
+
+## Data Flow
+
+1. User Input Processing:
+   ```
+   Text Input -> NLP Processing -> Structured Data -> Calendar API -> Event Creation
+   ```
+
+2. Event Extraction:
+   ```
+   Calendar Data -> Event Analysis -> Pattern Detection -> Summary Generation -> Email Delivery
+   ```
+
+## Technical Decisions
+
+### 1. Framework Selection
+- **Next.js**: Chosen for:
+  - Server-side rendering capabilities
+  - API routes
+  - TypeScript integration
+  - Performance optimization features
+
+### 2. Database Strategy
+- **PostgreSQL**: Primary database for:
+  - User preferences
+  - Event templates
+  - Application state
+- **Redis**: Caching layer for:
+  - Frequent queries
+  - Rate limiting
+  - Session management
+
+### 3. Authentication
+- **Firebase Authentication**:
+  - OAuth 2.0 integration
+  - Secure token management
+  - Multiple provider support
+
+### 4. UI/UX Principles
+- Material Design inspired components
+- Progressive enhancement
+- Mobile-first approach
+- Accessibility compliance
+
+## Security Architecture
+
+1. Authentication Layer:
+   - JWT token validation
+   - Role-based access control
+   - Session management
+
+2. Data Protection:
+   - Input sanitization
+   - API rate limiting
+   - CORS policies
+   - Data encryption
+
+3. Error Handling:
+   - Graceful degradation
+   - User-friendly error messages
+   - Detailed logging
+   - Recovery procedures
+
+## Scalability Considerations
+
+1. Performance:
+   - Component-level code splitting
+   - Image optimization
+   - Efficient caching strategies
+   - Lazy loading
+
+2. Database:
+   - Connection pooling
+   - Query optimization
+   - Index management
+   - Cache invalidation
+
+3. API:
+   - Rate limiting
+   - Request queuing
+   - Batch processing
+   - Response compression
+
+## Future Extensibility
+
+1. Planned Features:
+   - Advanced event suggestions
+   - Multi-calendar support
+   - Team calendar management
+   - Custom event templates
+
+2. Integration Points:
+   - Additional calendar providers
+   - Meeting platforms
+   - CRM systems
+   - Task management tools
+
+## Monitoring and Maintenance
+
+1. Performance Metrics:
+   - Page load times
+   - API response times
+   - Error rates
+   - User engagement
+
+2. Health Checks:
+   - Service availability
+   - Database connections
+   - Cache hit rates
+   - Authentication status
+
+## Project Structure
+
+```
+ai-calendar-helper/
+├── app/                    # Next.js App Router directory
+│   ├── layout.tsx         # Root layout with metadata configuration
+│   └── page.tsx           # Home page component
+├── components/            # Reusable UI components
+│   ├── ui/               # Base UI components
+│   │   ├── Button.tsx    # Reusable button component
+│   │   ├── Card.tsx      # Card component with subcomponents
+│   │   ├── Input.tsx     # Form input component
+│   │   └── Label.tsx     # Form label component
+│   ├── forms/            # Form-specific components
+│   └── layouts/          # Layout components
+├── lib/                  # Utility functions and configurations
+│   └── env.ts           # Environment configuration
+├── public/              # Static assets
+└── styles/             # Global styles and theming
+```
+
+## Component Architecture
+
+### UI Components
+
+All UI components follow these principles:
+- Use TypeScript for type safety
+- Implement proper accessibility features
+- Support theme customization
+- Include proper prop documentation
+- Use 'use client' directive when needed
+
+#### Button Component
+- Variants: default, destructive, outline, secondary, ghost, link
+- Sizes: default, sm, lg, icon
+- Full keyboard navigation support
+- Loading state support
+
+#### Card Component
+- Subcomponents: Header, Title, Description, Content, Footer
+- Variants: default, outline, ghost
+- Flexible content layout
+- Consistent spacing
+
+#### Input Component
+- Variants: default, outline, ghost
+- Sizes: default, sm, lg
+- Form integration support
+- Validation state support
+
+#### Label Component
+- Variants: default, error, success
+- Proper form association
+- Screen reader support
+
+## Configuration
+
+### Metadata
+- Separate viewport and metadata exports
+- Theme color support for light/dark modes
+- Proper SEO configuration
+
+### Build Configuration
+- Next.js 15.2.2 with TypeScript
+- Turbopack experimental features
+- Bundle analysis support
+
+### Development Setup
+- ESLint and Prettier integration
+- TypeScript strict mode
+- Development scripts:
+  - `dev`: Development server
+  - `build`: Production build
+  - `start`: Production server
+  - `lint`: Code linting
+
+## Best Practices
+
+1. **Component Organization**
+   - Separate concerns between UI and logic
+   - Use composition over inheritance
+   - Implement proper prop typing
+
+2. **Performance**
+   - Use proper code splitting
+   - Implement proper caching strategies
+   - Optimize bundle size
+
+3. **Accessibility**
+   - ARIA labels where needed
+   - Keyboard navigation support
+   - Proper color contrast
+
+4. **State Management**
+   - Use React hooks effectively
+   - Implement proper error boundaries
+   - Handle loading states
+
+## Next Steps
+
+1. Implement remaining UI components
+2. Set up authentication flow
+3. Configure database connections
+4. Implement API routes
+5. Add PWA support
+
 # Project Design
 
 AI Calendar Helper

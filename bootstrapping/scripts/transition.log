@@ -1,0 +1,24 @@
+[2025-03-17 09:27:51] Script started with arguments: programming
+[2025-03-17 09:27:51] No phase specified. Automatically selected first phase: 'planning'
+[2025-03-17 09:27:51] Project Type: programming, Next Phase: planning
+[2025-03-17 09:27:51] Archived scratchpad.md to bootstrapping/completed/scratchpad-planning-2025-03-17-09-27-51.md
+[2025-03-17 09:27:51] Found files to copy for phase 'planning'
+[2025-03-17 09:27:51] Copied bootstrapping/project-types/programming/planning/scratchpad.mdc to .cursor/rules/scratchpad.mdc
+[2025-03-17 09:27:51] Copied bootstrapping/project-types/programming/planning/scratchpad.md to scratchpad.md
+[2025-03-17 09:27:51] Copied bootstrapping/project-types/programming/planning/design-template.md to docs/templates/design-template.md
+[2025-03-17 09:27:51] Copied bootstrapping/project-types/programming/planning/architecture-template.md to docs/templates/architecture-template.md
+[2025-03-17 09:27:51] Copied bootstrapping/project-types/programming/planning/story-template.md to docs/templates/story-template.md
+[2025-03-17 09:27:51] Copied bootstrapping/project-types/programming/planning/work-template.md to docs/templates/work-template.md
+[2025-03-17 09:27:51] Copied bootstrapping/project-types/programming/planning/design.md to docs/design.md
+[2025-03-17 09:27:51] Copied bootstrapping/project-types/programming/planning/architecture.md to docs/architecture.md
+[2025-03-17 09:27:51] Copied bootstrapping/project-types/programming/planning/stories.md to docs/stories.md
+[2025-03-17 09:27:51] Copied bootstrapping/project-types/programming/planning/stories-template.md to docs/templates/stories-template.md
+[2025-03-17 09:27:51] Copied bootstrapping/project-types/programming/planning/story-template.md to docs/templates/story-template.md
+[2025-03-17 09:27:51] Transition to 'planning' complete!
+[2025-03-17 13:06:25] Script started with arguments: programming
+[2025-03-17 13:06:25] Project Type: programming, Next Phase: project-setup
+[2025-03-17 13:06:25] Archived scratchpad.md to bootstrapping/completed/scratchpad-project-setup-2025-03-17-13-06-25.md
+[2025-03-17 13:06:25] Found files to copy for phase 'project-setup'
+[2025-03-17 13:06:25] Copied bootstrapping/project-types/programming/project-setup/scratchpad.mdc to .cursor/rules/scratchpad.mdc
+[2025-03-17 13:06:25] Copied bootstrapping/project-types/programming/project-setup/scratchpad.md to scratchpad.md
+[2025-03-17 13:06:25] Transition to 'project-setup' complete!

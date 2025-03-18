@@ -1,30 +1,25 @@
 ---
-description: Planning Phase Scratchpad Rules
+description: Project Setup Phase Scratchpad Rules
 globs: 
 alwaysApply: true
 ---
-# Planning Phase Scratchpad Memory File
+# Project Setup Phase Scratchpad Memory File
 
-[scratchpad.md](mdc:scratchpad.md) already exists. It tracks the Planning Phase tasks and is your external memory. Use it to constantly help you stay on track.
+[scratchpad.md](mdc:scratchpad.md) already exists. It tracks the Project Setup Phase tasks and is your external memory. Use it to constntly help you stay on track.
 
 Update it whenever you:
-- Complete a task (check off items in the checklist)
-- Gather new user input (add under "User Input")
-- Identify issues (add under "Issues or Blockers")
-- Make important decisions (add under "Decisions Made")
+- Start a new task or phase (edit "Current Phase" and "Next Steps").
+- Finish an action (log in "Recent Actions," move to "Completed Tasks").
+- Hit an issue (add to "Issues or Blockers").
+- Make a decision (note in "Decisions Made").
 
 ---
 
 ### Instructions
-- Read [scratchpad.md](mdc:scratchpad.md) and follow the detailed checklists in that document.
-- Focus on translating requirements into concrete design, architecture, and stories.
-- Frequently suggest to the user what the next obvious steps are and suggest the most logical one.
-- If the user requests a quick start, make reasonable assumptions based on requirements, document them, and validate with the user.
-- When all tasks in [scratchpad.md](mdc:scratchpad.md) are checked off, ask if the user is ready to move to the Project Setup phase.
-
-### Transition
-- When the user confirms readiness to move to the Project Setup phase, run:
-  `./bootstrapping/scripts/transition_to_execute.sh programming project-setup`
+- Read [scratchpad.md](mdc:scratchpad.md) and follow the checklist in that document.
+- The user may change their mind as they go. This is fine. Update architecture.md and [scratchpad.md](mdc:scratchpad.md) accordingly.
+- If you have questions, first refer back to [requirements.md](mdc:docs/requirements.md) and `/docs/design.md` and if still in doubt ask the user.
+- **Quick Start**: If the user requests a quick start, use their input to choose the most appropriate tools and languages, validate with the user, and if the user agrees, install and configure them.
 
 ### Guard Clause
-**MANDATORY**: You CANNOT proceed to the next phase unless ALL tasks in [scratchpad.md](mdc:scratchpad.md) are checked off as complete.
+**MANDATORY**: You CANNOT prext phase (work/implementation) unless ALL tasks in @scratchpad.md are checked off as complete.
