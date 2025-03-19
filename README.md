@@ -111,3 +111,115 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ## Acknowledgments
 
 This project is inspired by various calendar automation tools and aims to solve personal pain points around calendar management.
+
+## Project Structure
+
+```
+ai-calendar-helper/
+├── app/                    # Next.js 13+ App Router
+│   ├── api/                # API routes
+│   │   ├── auth/           # Authentication endpoints
+│   │   │   └── session/    # Session management endpoints
+│   │   ├── events/         # Calendar events endpoints
+│   │   └── health/         # Health check endpoint
+│   ├── globals.css         # Global styles with Tailwind imports
+│   ├── layout.tsx          # Root layout
+│   └── page.tsx            # Home page
+├── components/             # Reusable components
+│   ├── auth/               # Authentication components
+│   │   ├── SignInButton.tsx # Google sign-in/sign-out button
+│   │   └── UserProfile.tsx  # User profile display
+│   ├── ui/                 # Base UI components
+├── lib/                    # Utility functions and configurations
+│   ├── firebase.ts         # Firebase Web SDK configuration
+│   ├── firebase-admin.ts   # Firebase Admin SDK configuration
+│   └── session.ts          # Session management utilities
+├── middleware.ts           # Authentication middleware
+├── tests/                  # Centralized test directory
+│   ├── unit/               # Unit tests
+│   │   ├── components/     # Component tests
+│   │   └── api/            # API tests
+│   ├── integration/        # Integration tests
+│   ├── e2e/                # E2E tests with Playwright
+│   ├── mocks/              # Test mocks
+│   ├── utils/              # Test utilities
+│   └── config/             # Test configuration
+│       ├── jest.config.js  # Jest configuration
+│       └── setup/          # Test setup files
+├── docs/                   # Project documentation
+│   └── testing.md          # Testing guide
+├── jest.config.js          # Jest configuration wrapper
+└── next.config.js          # Next.js configuration
+```
+
+## Getting Started
+
+1. Clone the repository
+2. Install dependencies with `npm install`
+3. Create a `.env.local` file with the required environment variables (see below)
+4. Run the development server with `npm run dev`
+
+## Environment Variables
+
+Required in `.env.local`:
+
+```bash
+# Firebase
+NEXT_PUBLIC_FIREBASE_API_KEY=
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=
+NEXT_PUBLIC_FIREBASE_PROJECT_ID=
+NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=
+NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=
+NEXT_PUBLIC_FIREBASE_APP_ID=
+
+# Firebase Admin SDK
+FIREBASE_PROJECT_ID=
+FIREBASE_CLIENT_EMAIL=
+FIREBASE_PRIVATE_KEY=
+```
+
+## Available Commands
+
+```bash
+# Development
+npm run dev       # Start development server
+npm run build     # Build for production
+npm run start     # Start production server
+
+# Testing
+npm test          # Run Jest tests
+npm test -- --watch   # Run tests in watch mode
+npm test -- --coverage # Run tests with coverage
+
+# Linting & Formatting
+npm run lint      # Check ESLint issues
+npm run lint:fix  # Fix ESLint issues
+npm run format    # Format with Prettier
+```
+
+## Authentication
+
+This project uses Firebase Authentication with Google Sign-In. The authentication flow is handled by the `SignInButton` component, which:
+
+1. Initiates Google authentication using Firebase
+2. Creates a session using the `/api/auth/session` endpoint
+3. Redirects to the dashboard on successful sign-in
+
+## Testing
+The project includes comprehensive testing with Jest for unit tests and Playwright for end-to-end tests.
+
+For detailed testing information, see [the testing guide](docs/testing/main.md) and the implementation documentation:
+- [Main testing documentation](tests/README-main.md)
+- [E2E testing documentation](tests/e2e/README-e2e.md)
+
+## Tech Stack
+
+- **Framework**: Next.js 15.2.2
+- **Authentication**: Firebase Auth with Google provider
+- **Database**: (Planned) PostgreSQL 
+- **Caching**: (Planned) Redis
+- **UI**: React 19 with Tailwind CSS
+- **Testing**: Jest with React Testing Library
+- **Type Checking**: TypeScript
+- **Linting**: ESLint
+- **Formatting**: Prettier

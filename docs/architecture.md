@@ -185,7 +185,7 @@ Background Service → Google Calendar API → Novel Events Filtering → Email 
 - Unit testing with Jest
 - Component testing with React Testing Library
 - API testing with Supertest
-- End-to-end testing with Cypress
+- End-to-end testing with Playwright
 - Accessibility testing with axe-core
 - Performance testing with Lighthouse
 - Security scanning with OWASP ZAP

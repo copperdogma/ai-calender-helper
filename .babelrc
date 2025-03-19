@@ -1,0 +1,9 @@
+{
+  "presets": [
+    ["next/babel"],
+    ["@babel/preset-typescript", { "isTSX": true, "allExtensions": true }]
+  ],
+  "plugins": [
+    ["@babel/plugin-transform-typescript", { "allowDeclareFields": true }]
+  ]
+} 

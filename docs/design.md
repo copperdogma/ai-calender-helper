@@ -693,3 +693,53 @@ class TimezoneService {
     );
   }
 }
+
+## Authentication Design
+
+### Implementation Details
+- Firebase Authentication with Google Sign-in
+- Custom session management using HTTP-only cookies
+- Protected routes using middleware
+- Server-side token verification
+
+### Components
+1. SignInButton (`components/auth/SignInButton.tsx`)
+   - Handles Google sign-in flow
+   - Manages sign-out functionality
+   - Automatic state management
+   - Loading states during authentication
+
+2. UserProfile (`components/auth/UserProfile.tsx`)
+   - Displays authenticated user information
+   - Shows Google profile picture
+   - Dark theme compatible card design
+   - Integrated sign-out functionality
+
+### API Routes
+1. Session Management (`app/api/auth/session/route.ts`)
+   - POST: Creates session from Firebase ID token
+   - DELETE: Removes session cookie
+   - Server-side token verification
+   - Secure cookie management
+
+### Middleware (`middleware.ts`)
+- Protects routes based on session cookie
+- Redirects unauthenticated users to login
+- Lightweight cookie checking
+- No token verification in middleware (done in API)
+
+### Security Considerations
+1. Token Security
+   - Firebase ID tokens verified server-side
+   - HTTP-only cookies for session storage
+   - Secure cookie flags in production
+
+2. Firebase Admin SDK
+   - Only used in API routes
+   - Environment variables properly secured
+   - Service account key properly managed
+
+3. Client-side Security
+   - Public Firebase config only
+   - No sensitive operations in browser
+   - Protected route patterns

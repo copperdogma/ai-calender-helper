@@ -3,23 +3,22 @@ description:
 globs: 
 alwaysApply: true
 ---
-# Project Reference
-
-> ⚡ This document must remain succinct. Edit ruthlessly. No fluff.
-
 ## Project Structure
 ```
 ai-calendar-helper/
 ├── app/                    # Next.js 13+ App Router
 │   ├── api/               # API routes
 │   │   ├── auth/         # Authentication endpoints
-│   │   │   └── [...nextauth]/ # NextAuth.js configuration
+│   │   │   └── session/  # Session management endpoints
 │   │   ├── events/       # Calendar events endpoints
 │   │   └── health/       # Health check endpoint
 │   ├── globals.css       # Global styles with Tailwind imports
 │   ├── layout.tsx         # Root layout
 │   └── page.tsx          # Home page
 ├── components/            # Reusable components
+│   ├── auth/             # Authentication components
+│   │   ├── SignInButton.tsx  # Google sign-in/sign-out button
+│   │   └── UserProfile.tsx   # User profile display
 │   ├── ui/               # Base UI components
 │   │   ├── Button.tsx    # Button with variants
 │   │   ├── Card.tsx      # Card with subcomponents
@@ -32,9 +31,25 @@ ai-calendar-helper/
 │   │   └── TextField.tsx  # Text input with MUI styling
 │   ├── forms/            # Form components
 │   └── layouts/          # Layout components
+├── lib/                  # Utility functions and configurations
+│   ├── firebase.ts       # Firebase Web SDK configuration
+│   ├── firebase-admin.ts # Firebase Admin SDK configuration
+│   └── session.ts        # Session management utilities
+├── middleware.ts         # Authentication middleware
 ```
 
 ## Component Architecture
+
+### Authentication Components
+- SignInButton: Handles Google sign-in/sign-out with Firebase
+  - Variants: sign-in (default) and sign-out
+  - Automatic state management
+  - Loading states during auth
+- UserProfile: Displays authenticated user information
+  - Profile picture with proper styling
+  - User name and email display
+  - Dark theme compatible
+  - Integrated sign-out button
 
 ### UI Components
 - Button: default/destructive/outline/secondary/ghost/link variants
@@ -57,16 +72,16 @@ ai-calendar-helper/
 - Dark mode support via CSS variables
 
 ## Routes
-- `/` - Dashboard
+- `/` - Dashboard (protected)
+- `/login` - Authentication page
+- `/api/auth/session` - Session management
+  - POST: Create session from Firebase token
+  - DELETE: Remove session (sign out)
 - `/api/events` - Calendar events CRUD operations
   - GET: Fetch events
   - POST: Create event
   - PUT: Update event
   - DELETE: Delete event
-- `/api/auth/*` - NextAuth.js authentication endpoints
-  - Handles Google OAuth flow
-  - Manages session tokens
-  - Scoped for calendar access
 
 ## CLI Commands
 
@@ -82,7 +97,10 @@ npm run start      # Start production server
 npm run lint       # Check ESLint issues
 npm run lint:fix   # Fix ESLint issues
 npm run format     # Format with Prettier
-npm test          # Run tests (TBD)
+npm test          # Run all tests with Jest
+npm run test:watch # Run tests in watch mode
+npm run test:coverage # Run tests with coverage report
+npm run test:ci    # Run tests in CI environment
 ```
 
 ## Environment Variables
@@ -92,6 +110,14 @@ Required in `.env.local`:
 NEXT_PUBLIC_FIREBASE_API_KEY=
 NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=
 NEXT_PUBLIC_FIREBASE_PROJECT_ID=
+NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=
+NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=
+NEXT_PUBLIC_FIREBASE_APP_ID=
+
+# Firebase Admin SDK
+FIREBASE_PROJECT_ID=
+FIREBASE_CLIENT_EMAIL=
+FIREBASE_PRIVATE_KEY=
 
 # Database
 POSTGRES_URL=
@@ -101,10 +127,6 @@ REDIS_URL=
 GOOGLE_CALENDAR_API_KEY=
 GOOGLE_CLIENT_ID=
 GOOGLE_CLIENT_SECRET=
-
-# NextAuth.js
-NEXTAUTH_URL=
-NEXTAUTH_SECRET=
 ```
 
 ## Tech Stack
@@ -112,12 +134,12 @@ NEXTAUTH_SECRET=
 - React 19
 - TypeScript 5
 - Tailwind CSS v4
-  - PostCSS integration
-  - Modern CSS imports
-  - No configuration file needed
 - Firebase Auth
-- PostgreSQL
-- Redis
+  - Google Sign-in provider
+  - Custom session management
+  - Protected routes
+- PostgreSQL (pending)
+- Redis (pending)
 - Material Design components
 
 ## Configuration Files
@@ -127,6 +149,10 @@ NEXTAUTH_SECRET=
 - `.env.example` - Environment variables template
 - `.eslintrc.js` - ESLint rules
 - `.prettierrc` - Code formatting
+- `jest.config.js` - Jest test configuration with three projects:
+  - Components testing (jsdom environment)
+  - API testing (node environment)
+  - Integration testing (node environment)
 
 ## CSS Architecture
 ```css
@@ -172,6 +198,9 @@ NEXTAUTH_SECRET=
 - CORS configuration
 - Rate limiting
 - Input sanitization
+- Firebase token verification
+- Secure session cookies
+- Server-side Admin SDK operations
 
 ## API Reference
 

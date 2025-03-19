@@ -33,6 +33,7 @@ AI Calendar Helper
 | 020      | Progressive Web App Capabilities | Low | To Do | /docs/stories/story-020-pwa-capabilities.md |
 | 023      | Test Data Generation | Medium | To Do | /docs/stories/story-023-test-data-generation.md |
 | 015      | Batch Event Creation (Possible Future Enhancement) | Low | To Do | /docs/stories/story-015-batch-event-creation.md |
+| 025      | CI/CD Pipeline Setup | Medium | To Do | /docs/stories/story-025-cicd-pipeline.md |
 
 ## Priority Explanation
 - **High**: Core functionality required for MVP
@@ -77,6 +78,7 @@ AI Calendar Helper
 - Story 020: Progressive Web App Capabilities
 - Story 023: Test Data Generation
 - Story 015: Batch Event Creation (Possible Future Enhancement)
+- Story 025: CI/CD Pipeline Setup
 
 ## Notes
 - The implementation order is designed to deliver a working Text-to-Calendar MVP as quickly as possible

@@ -1,6 +1,96 @@
-# Story: Google Calendar API Integration
+# Story 001: Google Calendar API Integration
 
-**Status**: To Do
+## Overview
+Implement core integration with Google Calendar API, including authentication, event management, and proper security measures.
+
+## Priority
+High
+
+## Status
+To Do
+
+## Phase
+Phase 1 (Text-to-Calendar MVP)
+
+## Requirements
+
+### API Setup and Configuration
+- [ ] Set up Google Cloud project
+- [ ] Configure OAuth consent screen
+- [ ] Create API credentials (OAuth client ID)
+- [ ] Set up environment variables for API keys and secrets
+
+### Core Integration
+- [ ] Implement OAuth 2.0 authentication flow
+- [ ] Create base API handlers
+- [ ] Implement CRUD operations for calendar events
+- [ ] Create CalendarService class with event management methods
+- [ ] Add token management (storage, refresh, expiration)
+
+### Security and Error Handling
+- [ ] Configure API authentication middleware
+- [ ] Implement proper error handling for API failures
+- [ ] Set up request validation
+- [ ] Add rate limiting mechanism
+- [ ] Ensure read-only access where appropriate
+- [ ] Implement proper scopes for calendar access
+
+### Documentation
+- [ ] Create API documentation
+- [ ] Document integration process
+- [ ] Add usage examples
+- [ ] Document error codes and handling
+- [ ] Add rate limiting documentation
+
+## Acceptance Criteria
+1. Application can authenticate with Google Calendar API using OAuth 2.0
+2. Application can successfully perform CRUD operations on calendar events
+3. Read-only access is enforced where appropriate
+4. Proper error handling is implemented for API failures
+5. Token refresh and expiration are handled correctly
+6. API requests adhere to rate limits
+7. Request validation prevents invalid operations
+8. Documentation is complete and accurate
+9. Integration tests pass successfully
+10. User must sign off on functionality
+
+## Dependencies
+- Story 002: User Authentication with Firebase (for user context)
+
+## Technical Notes
+- Use Google Calendar API v3
+- Implement proper token storage and refresh mechanisms
+- Support both single-event and recurring event operations
+- Consider implementing retry mechanisms for transient failures
+- Use TypeScript for type safety
+- Follow REST best practices for API design
+
+## Security Considerations
+- Secure storage of API credentials
+- Proper scope management
+- Rate limiting implementation
+- Input validation
+- Error message sanitization
+- Token security
+
+## Testing Requirements
+- Unit tests for CalendarService
+- Integration tests for API endpoints
+- Authentication flow tests
+- Error handling tests
+- Rate limiting tests
+
+## Future Considerations
+- Batch operations support
+- Webhook integration for real-time updates
+- Caching layer for frequently accessed data
+- Advanced conflict resolution
+- Multiple calendar support
+
+## Notes
+- This is a core feature required for MVP
+- Focus on stability and security
+- Required for both text-to-calendar and novel events features
 
 ---
 
@@ -16,15 +106,6 @@
 [Security Architecture](../architecture.md#security-architecture)
 - "OAuth 2.0 authentication with Google"
 - "Read-only scopes for calendar access when possible"
-
-## Acceptance Criteria
-- [ ] Application can authenticate with Google Calendar API using OAuth 2.0
-- [ ] Application can successfully retrieve calendar events with proper permissions
-- [ ] Read-only access is enforced for retrieving calendar data
-- [ ] Proper error handling is implemented for API failures
-- [ ] Token refresh and expiration are handled correctly
-- [ ] API requests adhere to rate limits to prevent quota issues
-- [ ] User must sign off on functionality before story can be marked complete
 
 ## Tasks
 - [ ] Set up Google Cloud project and configure OAuth consent screen
